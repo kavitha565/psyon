@@ -1,0 +1,30 @@
+<app-header></app-header>
+<div class="dashboard-container">
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>Standard Dasboards</li>
+            <li>Custom Insights</li>
+            <li>Subscriptions</li>
+            <li>Account</li>
+            <li>Leaning Resources</li>
+        </ul>
+    </nav>
+    <div class="dashboard-content">
+        <app-subscriptions></app-subscriptions>
+    </div>
+    <!-- <div class="content">
+        <div class="greeting-container">
+            Welcome to Psyon
+        </div>
+        <form name="myForm" [formGroup]="myForm">
+            <div class="pbContainer" *ngIf="progress!=0">
+                <div class="progressBar" [style.width.%]="progress"></div>
+            </div>{{progress}} % Uploaded!!
+            <div class="formInput">
+                <input type="file" name="fileName" formControlName="fileName" (change)="onFileInput($event.target.files)" required/>
+            </div>
+            <button (click)="submit(myForm)" [disabled]="myForm.invalid">Upload</button>
+        </form>
+    </div> -->
+</div>

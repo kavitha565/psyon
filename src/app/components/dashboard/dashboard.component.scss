@@ -1,0 +1,40 @@
+.dashboard-container{
+    margin-top: 60px;
+    nav{
+        width: 200px;
+        background: #eee;
+        position: fixed;
+        height: 100%;
+        ul{
+            margin: 0;
+            list-style-type: none;
+            padding: 0;
+            li{
+                padding: 1em;
+                cursor: pointer;
+            }
+        }
+    }
+    .dashboard-content{
+        margin-left: 200px;
+    }
+    .greeting-container{
+        text-align: center;
+        font-size: 30px;
+        margin-top: 2em;
+    }
+}
+//css styles for Progress bar
+.pbContainer{
+    color: #000;
+    background-color: #f1f1f1;
+    border-radius: 16px;
+    width: 300px;
+    margin: 10px;
+    .progressBar{
+        color: #fff;
+        background-color: #2196F3;
+        height: 16px;
+        border-radius: 16px;
+    }
+}

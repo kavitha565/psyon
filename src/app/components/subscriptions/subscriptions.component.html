@@ -1,0 +1,5 @@
+<div class="subscription-container">
+    <div *ngFor="let subscription of subscriptions" class="subscription-content" [ngClass]="{'disabled': !subscription.subscribed}">
+        {{subscription.name}}
+    </div>
+</div>
