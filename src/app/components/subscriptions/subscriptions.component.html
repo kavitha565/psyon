@@ -1,5 +1,24 @@
+<div class="switch-container">
+    Only show dashboards I am subscribed to
+    <label class="switch">
+        <input type="checkbox" [(ngModel)]="subscribed">
+        <span class="slider round"></span>
+    </label>
+</div>
 <div class="subscription-container">
-    <div *ngFor="let subscription of subscriptions" class="subscription-content" [ngClass]="{'disabled': !subscription.subscribed}">
+    <div *ngFor="let subscription of subscriptions | subscribeFilter : subscribed" class="subscription-content parent" [ngClass]="{'disabled': !subscription.subscribed}">
         {{subscription.name}}
+        <div *ngIf="!subscription.subscribed">
+            <button>Find more</button>
+        </div>
+        <div *ngIf="subscription.subscribed" class="toggle-div hidden">
+            <span>{{subscription.name}}</span>
+            <span>Last accessed:</span>
+            <span>DD/MM/YYYY</span>
+            <span>Data last updated:</span>
+            <span>DD/MM/YYYY</span>
+            <span><a routerLink="/fileUpload">Import new data</a></span>
+            <span><a>Access dashboard</a></span>
+        </div>
     </div>
 </div>

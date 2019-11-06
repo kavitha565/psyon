@@ -4,6 +4,10 @@ import { OktaCallbackComponent, OktaAuthGuard } from '@okta/okta-angular';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthGuard } from './guards/auth-guard.service';
+import { UmbracoComponent } from './components/umbraco/umbraco.component';
+import { SubscriptionsComponent } from './components/subscriptions/subscriptions.component';
+import { PowerBIComponent } from './components/power-bi/power-bi.component';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
 
 const routes: Routes = [
   {
@@ -17,7 +21,36 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
-    canActivate: [ AuthGuard ]
+    canActivate: [ AuthGuard ],
+    children : [
+      {
+        path : 'usersubscriptions',
+        component : SubscriptionsComponent
+      },
+      {
+        path : 'powerBI',
+        children : [
+          {
+            path : '**',
+            component : PowerBIComponent
+          }
+        ]
+        
+      },
+      {
+        path: 'umbraco',
+        children : [
+          {
+            path : '**',
+            component : UmbracoComponent
+          }
+        ]
+      }
+    ]
+  },
+  {
+    path : 'fileUpload',
+    component : FileUploadComponent
   },
   {
     path: '**', 

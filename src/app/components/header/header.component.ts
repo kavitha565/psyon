@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl('/');
   }
   ngOnInit() {
+    
     //getting profile data from localstorage
     if(localStorage.length>0 && localStorage["okta-token-storage"]){
       let sessionData = JSON.parse(localStorage["okta-token-storage"]);

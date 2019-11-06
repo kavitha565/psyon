@@ -15,4 +15,19 @@ export class CommonService {
       observe:'events'
     });
   }
+  getResults(endpointUrl) {
+    const requestOptions: Object = {
+      /* other options here */
+      responseType: 'text'
+    }
+    return this.http.get<string>(endpointUrl,requestOptions);
+  }
+  getPowerBIData(){
+    return this.http.get(environment.endpoint.powerBIUrl);
+  }
+
+  getCmsData(){
+    return this.http.get(environment.endpoint.cmsUrl);
+  }
+
 }

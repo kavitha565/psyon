@@ -1,0 +1,42 @@
+nav{
+    // width: 200px;
+    // background: #eee;
+    // position: fixed;
+    // height: 100%;
+    background: #eee;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    top: 60px;
+    ul{
+        margin: 0;
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        li{
+            padding: 1em;
+            a{
+                text-decoration: none;
+                cursor: pointer;
+            }
+        }
+    }
+    .menu-container{
+        display: none;
+        background: #fff;
+        width: auto;
+        margin-top: 10px;
+        ul{
+            flex-flow: column;
+            li{
+                padding:12px;
+                a{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+li:hover .menu-container{
+    display: block
+}

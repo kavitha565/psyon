@@ -1,0 +1,40 @@
+<app-header></app-header>
+<!-- <app-navbar></app-navbar> -->
+<div class="main-container">
+    <div class="file-upload-container">
+        <div class="file-upload">
+            <div class="file-upload-content">
+                <div [ngClass]="{'disabled' : myForm.invalid}">
+                    <i (click)="submit(myForm)" class="fa fa-upload" [ngClass]="{'no-pointer-events' : myForm.invalid}"></i>
+            
+                </div>
+            </div>
+            <form name="myForm" [formGroup]="myForm" style="margin-top:20px;">
+                <div class="formInput">
+                    <input type="file" name="fileName" formControlName="fileName" (change)="onFileInput($event.target.files)" required/>
+                </div>
+            </form>
+        </div>
+        <div class="file-progress">
+           <p style="margin-top:0">Upload(s) in progress</p>
+           <div *ngIf="!isUploaded" class="noFileContainer">
+               No Files found!!
+           </div>
+            <ng-container *ngFor="let file of fileDetails">
+                <div *ngIf="file.progress!=0" class="upload-progress-container">
+                    <i class="fa fa-file" aria-hidden="true"></i>
+                    <div>
+                        <div class="file-details">
+                            <span>{{file.fileName}}</span>
+                            <span>{{file.fileSize}}</span>
+                        </div>
+                        <div class="pbContainer">
+                            <div class="progressBar" [style.width.%]="file.progress"></div>
+                        </div>
+                        <div>{{file.progress}} % Uploaded!!</div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

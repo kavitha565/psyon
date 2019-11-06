@@ -27,14 +27,17 @@ export class LoginComponent implements OnInit {
           el: "#okta-signin-container"},
           (res) => {
             console.log(res);
-            this.signin.loginRedirect('/dashboard', {sessionToken: res.session.token});
-            //this.router.navigate(['/dashboard']);
+            this.signin.loginRedirect('/dashboard/usersubscriptions', {sessionToken: res.session.token});
             this.widget.hide();
           })
       } else {
-        this.signin.loginRedirect('/dashboard');
+        this.signin.loginRedirect('/dashboard/usersubscriptions');
       }
     })
+    
   }
 
+
+    
+  
 }

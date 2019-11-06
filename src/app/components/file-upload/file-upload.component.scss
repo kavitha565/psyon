@@ -1,0 +1,67 @@
+.main-container{
+    margin-top: 60px;
+    //margin-left: 200px;
+    padding: 2em;
+    .file-upload-container{
+        display: flex;
+        flex-flow: row;
+    }
+    .file-upload{
+        flex: 1 0 50%;
+        text-align: center;
+        .file-upload-content{
+            border-style: dashed;
+            width: 70%;
+            height: 300px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10%;
+            i{
+                font-size: 35px;
+                cursor: pointer;
+            }
+        }
+    }
+    .file-progress{
+        flex: 1 0 50%;
+        text-align: left;
+        .upload-progress-container{
+            display: flex;
+            padding: 15px;
+            padding-left: 0;
+            .file-details span{
+                margin-right: 10px;
+            }
+        }
+        .fa{
+            font-size: 32px;
+            flex: 0 0 5%;
+            margin: 10px;
+        }
+    }
+    .noFileContainer{
+        font-size: 20px;
+        margin-top: 20%;
+        text-align: center;
+    }
+}
+
+
+//css styles for Progress bar
+.pbContainer{
+    color: #000;
+    background-color: #eee;
+    border-radius: 16px;
+    width: 400px;
+    margin: 10px;
+    margin-left: 0;
+    .progressBar{
+        color: #fff;
+        background-color: #ccc;
+        height: 5px;
+        border-radius: 16px;
+    }
+}
+

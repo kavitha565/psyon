@@ -5,7 +5,10 @@
 export const environment = {
   production: false,
   endpoint : {
-    fileUploadUrl : "/api/fileUpload"
+    fileUploadUrl : "/api/fileUpload",
+    powerBIUrl : "http://demo0674380.mockable.io/getPowerBI",
+    cmsUrl : "http://demo0674380.mockable.io/getCmsData"
+    
   }
 };
 

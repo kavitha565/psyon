@@ -1,17 +1,19 @@
 <app-header></app-header>
+<app-navbar></app-navbar>
+<!--Loader start here-->
+<div *ngIf="isLoading<2" id="overlay">
+    <div class="loader">
+            
+     </div>
+</div> 
+<!--Loader end here-->
+<div class="loader-container">
+    <div class="loader"></div>
+</div>
 <div class="dashboard-container">
-    <nav>
-        <ul>
-            <li>Home</li>
-            <li>Standard Dasboards</li>
-            <li>Custom Insights</li>
-            <li>Subscriptions</li>
-            <li>Account</li>
-            <li>Leaning Resources</li>
-        </ul>
-    </nav>
+    
     <div class="dashboard-content">
-        <app-subscriptions></app-subscriptions>
+        <router-outlet></router-outlet>
     </div>
     <!-- <div class="content">
         <div class="greeting-container">

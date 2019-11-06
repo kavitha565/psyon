@@ -6,13 +6,35 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class SharedServiceService {
 
-  private profileData  = new BehaviorSubject({name:'kavi'});
-  currentProfileData = this.profileData.asObservable();
+  private cmsData  = new BehaviorSubject([]);
+  getCmsData = this.cmsData.asObservable();
+
+  private cmsUrl = new BehaviorSubject('');
+  getCmsUrl = this.cmsUrl.asObservable();
+
+  private powerBIData = new BehaviorSubject('');
+  getpowerBIData = this.powerBIData.asObservable();
+
+  private selectedPowerBIData = new BehaviorSubject('');
+  getselectedPowerBIData = this.selectedPowerBIData.asObservable();
 
   constructor() { }
 
   setProfileData(data:any){
-    this.profileData.next(data);
+    this.cmsData.next(data);
   }
+
+  setCmsUrl(data:any){
+    this.cmsUrl.next(data);
+  }
+
+  setpowerBIData(data:any){
+    this.powerBIData.next(data);
+  }
+
+  setselectedPowerBIData(data:any){
+    this.selectedPowerBIData.next(data);
+  }
+  
 
 }

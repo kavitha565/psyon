@@ -12,6 +12,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
 import { SubscriptionsComponent } from './components/subscriptions/subscriptions.component';
+import { SubscribeFilterPipe } from './pipes/subscribe-filter.pipe';
+import { UmbracoComponent } from './components/umbraco/umbraco.component';
+import { MvcPartialDirective } from './directives/mvc-partial.directive';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { PowerBIComponent } from './components/power-bi/power-bi.component';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
 
 // const config = {
 //   "baseUrl": "https://hyperiongrp-dev.oktapreview.com",
@@ -29,6 +35,12 @@ import { SubscriptionsComponent } from './components/subscriptions/subscriptions
     DashboardComponent,
     HeaderComponent,
     SubscriptionsComponent,
+    SubscribeFilterPipe,
+    UmbracoComponent,
+    MvcPartialDirective,
+    NavbarComponent,
+    PowerBIComponent,
+    FileUploadComponent
   ],
   imports: [
     BrowserModule,
