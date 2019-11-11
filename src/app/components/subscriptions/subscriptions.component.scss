@@ -1,12 +1,19 @@
-.switch-container{
+.container{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  .switch-container{
     padding: 15px;
+    display: flex;
+    align-items: center;
 }
 .subscription-container{
     display: flex;
     flex-wrap: wrap;
     .subscription-content{
         height: 200px;
-        width: 25%;
+        width: 350px;
         margin: 2em;
         border: 2px solid black;
         text-align: center;
@@ -14,9 +21,9 @@
         position: relative;
         .toggle-div{
           background: #ccc;
-          width: 248px;
-          height: 195px;
-          left: 78px;
+          width: 80%;
+          height: 100%;
+          left: 70px;
           top: 0px;
           position: absolute;
           text-align: left;
@@ -32,12 +39,15 @@
         border: #eee;
     }
 }
+}
+
 //slider css
 .switch {
     position: relative;
     display: inline-block;
     width: 60px;
     height: 34px;
+    margin-left: 15px;
   }
   
   .switch input { 

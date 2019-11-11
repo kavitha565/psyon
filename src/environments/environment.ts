@@ -7,7 +7,9 @@ export const environment = {
   endpoint : {
     fileUploadUrl : "/api/fileUpload",
     powerBIUrl : "http://demo0674380.mockable.io/getPowerBI",
-    cmsUrl : "http://demo0674380.mockable.io/getCmsData"
+    cmsUrl : "http://demo0674380.mockable.io/getCmsData",
+    registerUrl : "",
+    usersUrl : "http://demo0674380.mockable.io/api/users"
     
   }
 };

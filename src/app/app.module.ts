@@ -18,7 +18,8 @@ import { MvcPartialDirective } from './directives/mvc-partial.directive';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PowerBIComponent } from './components/power-bi/power-bi.component';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
-
+import { UserManagementComponent } from './components/user-management/user-management.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 // const config = {
 //   "baseUrl": "https://hyperiongrp-dev.oktapreview.com",
 //   "issuer": "https://hyperiongrp-dev.oktapreview.com/oauth2/ausiu499ixSvvf26w0h7",
@@ -40,7 +41,8 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
     MvcPartialDirective,
     NavbarComponent,
     PowerBIComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    UserManagementComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,8 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
     OktaAuthModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgMultiSelectDropDownModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

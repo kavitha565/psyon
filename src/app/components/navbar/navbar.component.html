@@ -1,18 +1,21 @@
 <nav>
     <ul>
         <li>
-            <a routerLink="usersubscriptions">User Subscriptions</a>
+            <a routerLink="usersubscriptions" routerLinkActive="is-active">User Subscriptions</a>
         </li>
-        <li *ngIf="navBarData.length>0">
+        <li *ngIf="navBarData.length>0" class="menu-link">
             <a>CMS</a>
             <div class="menu-container">
                 <ul>
                     <li *ngFor="let item of navBarData">
-                        <a routerLink="umbraco/{{item.url}}" (click)="setCmsUrl(item.url)">{{item.name}}</a>
+                        <a routerLink="umbraco/{{item.url}}" (click)="setCmsUrl(item.url)" routerLinkActive="is-active">{{item.name}}</a>
                         
                     </li>
                 </ul>
             </div>
+        </li>
+        <li>
+            <a routerLink="usermanagement" routerLinkActive="is-active">User Management</a>
         </li>
         <!-- <ng-container *ngIf="navBarData.length>0">
             <li *ngFor="let item of navBarData">
@@ -20,7 +23,7 @@
                 
             </li>
         </ng-container> -->
-        <li *ngFor="let item of powerBIData;">
+        <!-- <li *ngFor="let item of powerBIData;">
             <a>{{item.Name}}</a>
             <div class="menu-container">
                 <ul>
@@ -29,6 +32,6 @@
                     </li>
                 </ul>
             </div>
-        </li>
+        </li> -->
     </ul>
 </nav>

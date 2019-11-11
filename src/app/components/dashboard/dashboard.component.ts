@@ -50,7 +50,7 @@ export class DashboardComponent implements OnInit {
     this.cs.getCmsData()
     .subscribe((res)=>{
       console.log(res);
-      this.sharedService.setProfileData(res)
+      this.sharedService.setCmsData(res)
       this.isLoading++
     },(err)=>{
       console.log(err);

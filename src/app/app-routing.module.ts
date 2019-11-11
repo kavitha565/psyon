@@ -8,6 +8,7 @@ import { UmbracoComponent } from './components/umbraco/umbraco.component';
 import { SubscriptionsComponent } from './components/subscriptions/subscriptions.component';
 import { PowerBIComponent } from './components/power-bi/power-bi.component';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { UserManagementComponent } from './components/user-management/user-management.component';
 
 const routes: Routes = [
   {
@@ -45,6 +46,10 @@ const routes: Routes = [
             component : UmbracoComponent
           }
         ]
+      },
+      {
+        path: 'usermanagement',
+        component : UserManagementComponent
       }
     ]
   },

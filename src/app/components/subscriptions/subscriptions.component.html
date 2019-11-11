@@ -1,24 +1,28 @@
-<div class="switch-container">
-    Only show dashboards I am subscribed to
-    <label class="switch">
-        <input type="checkbox" [(ngModel)]="subscribed">
-        <span class="slider round"></span>
-    </label>
-</div>
-<div class="subscription-container">
-    <div *ngFor="let subscription of subscriptions | subscribeFilter : subscribed" class="subscription-content parent" [ngClass]="{'disabled': !subscription.subscribed}">
-        {{subscription.name}}
-        <div *ngIf="!subscription.subscribed">
-            <button>Find more</button>
-        </div>
-        <div *ngIf="subscription.subscribed" class="toggle-div hidden">
-            <span>{{subscription.name}}</span>
-            <span>Last accessed:</span>
-            <span>DD/MM/YYYY</span>
-            <span>Data last updated:</span>
-            <span>DD/MM/YYYY</span>
-            <span><a routerLink="/fileUpload">Import new data</a></span>
-            <span><a>Access dashboard</a></span>
-        </div>
+<div class="container">
+    <div class="switch-container">
+        Only show dashboards I am subscribed to
+        <label class="switch">
+            <input type="checkbox" [(ngModel)]="subscribed">
+            <span class="slider round"></span>
+        </label>
+    </div>
+    <div class="subscription-container">
+        <ng-container *ngFor="let workspace of powerBIData">
+            <div *ngFor="let subscription of workspace.lstReport| subscribeFilter : subscribed" class="subscription-content parent" [ngClass]="{'disabled': !subscription.HasAccess}">
+                {{subscription.Name}}
+                <div *ngIf="!subscription.HasAccess">
+                    <button>Find out more</button>
+                </div>
+                <div *ngIf="subscription.HasAccess" class="toggle-div hidden">
+                    <span>{{subscription.Name}}</span>
+                    <span>Last accessed:</span>
+                    <span>DD/MM/YYYY</span>
+                    <span>Data last updated:</span>
+                    <span>DD/MM/YYYY</span>
+                    <span><a routerLink="/fileUpload">Import new data</a></span>
+                    <span><a routerLink="../powerBI/{{subscription.Name}}" (click)="selectedPowerBIData(subscription.Name)">Access dashboard</a></span>
+                </div>
+            </div>
+        </ng-container>
     </div>
 </div>

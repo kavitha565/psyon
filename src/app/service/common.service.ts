@@ -30,4 +30,15 @@ export class CommonService {
     return this.http.get(environment.endpoint.cmsUrl);
   }
 
+  registerService(data){
+    return this.http.post(environment.endpoint.registerUrl,data)
+  }
+
+  getUsersService(){
+    return this.http.get(environment.endpoint.usersUrl);
+  }
+
+  updateUserService(data){
+    return this.http.post(environment.endpoint.registerUrl,data)
+  }
 }

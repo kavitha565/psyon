@@ -1,0 +1,102 @@
+<div class="mainContainer">
+    <div *ngIf="showUsers" class="user-list-container">
+            <div class="heading">
+                <h2>Users</h2>
+                <button (click)="addUser()">Add User</button>
+            </div>
+            <table>
+              <tr>
+                <th>UserID</th>
+                <th>UserName</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Products</th>
+                <th>Actions</th>
+              </tr>
+              <tr *ngFor="let user of usersList">
+                  <td>{{user.UserID}}</td>
+                  <td>{{user.UserName}}</td>
+                  <td>{{user.FirstName}}</td>
+                  <td>{{user.LastName}}</td>
+                  <td>
+                      <ul *ngIf="user.Products.length>0;else no_products">
+                          <li *ngFor="let product of user.Products">{{product}}</li>
+                      </ul>
+                      <ng-template #no_products><p style="text-align: center">No products Mapped</p></ng-template>
+                  </td>
+                  <td class="user-actions"><i class="fa fa-pencil-square-o" (click)="updateUser(user)"></i></td>
+              </tr>
+            </table>
+    </div>
+    <div *ngIf="!showUsers"  class="register-form-container">
+        <button class="usersBtn" (click)="showUsers=true">Back to Users</button>
+        <form name="registerForm" [formGroup]="registerForm">
+           <!-- <div class="formInput">
+              <p>Name</p>
+              <input class="inputBox" type="text" name="name" formControlName="name" required autocomplete="off"/>
+              <div *ngIf="registerForm.controls.name.invalid && (registerForm.controls.name.dirty || registerForm.controls.name.touched)">
+                 <span *ngIf="registerForm.controls.name.errors.required" class="errorMsg">name required</span>
+              </div>
+           </div> -->
+            <!-- <div class="formInput">
+              <p>Email</p>
+              <input class="inputBox" type="text" name="email" formControlName="email" required autocomplete="off"/>
+              <div *ngIf="registerForm.controls.email.invalid && (registerForm.controls.email.dirty || registerForm.controls.email.touched)">
+                 <span *ngIf="registerForm.controls.email.errors.required" class="errorMsg">email required</span>
+              </div>
+            </div> -->
+            <!-- <div class="formInput">
+              <p>Mobile</p>
+              <input class="inputBox" type="text" name="mobile" formControlName="mobile" required autocomplete="off"/>
+              <div *ngIf="registerForm.controls.mobile.invalid && (registerForm.controls.mobile.dirty || registerForm.controls.mobile.touched)">
+                 <span *ngIf="registerForm.controls.mobile.errors.required" class="errorMsg">mobile required</span>
+              </div>
+           </div> -->
+            <div class="formInput">
+               <p>Username</p>
+               <input class="inputBox" type="text" name="username"  formControlName="username" required autocomplete="off"/>
+               <div *ngIf="registerForm.controls.username.invalid && (registerForm.controls.username.dirty || registerForm.controls.username.touched)">
+                 <span *ngIf="registerForm.controls.username.errors.required" class="errorMsg">username required</span>
+              </div>
+            </div>
+            <div class="formInput">
+                    <p>Products</p>
+                    <ng-multiselect-dropdown
+                     [(ngModel)]="selectedItems"
+                     [placeholder]="'custom placeholder'"
+                     [data]="dropdownList"
+                     [settings]="dropdownSettings"
+                     (onSelect)="onItemSelect($event)"
+                     (onSelectAll)="onSelectAll($event)"
+                     [ngModelOptions]="{standalone: true}"
+                     >
+                     </ng-multiselect-dropdown>
+            </div>
+             <div class="formInput">
+               <p>First name</p>
+               <input class="inputBox" type="text" name="firstname"  formControlName="firstname" required autocomplete="off"/>
+               <div *ngIf="registerForm.controls.firstname.invalid && (registerForm.controls.firstname.dirty || registerForm.controls.firstname.touched)">
+                 <span *ngIf="registerForm.controls.firstname.errors.required" class="errorMsg">first name required</span>
+              </div>
+            </div>
+             <div class="formInput">
+               <p>Last name</p>
+               <input class="inputBox" type="text" name="lastname"  formControlName="lastname" required autocomplete="off"/>
+               <div *ngIf="registerForm.controls.lastname.invalid && (registerForm.controls.lastname.dirty || registerForm.controls.lastname.touched)">
+                 <span *ngIf="registerForm.controls.lastname.errors.required" class="errorMsg">last name required</span>
+              </div>
+            </div>
+            <div class="formInput">
+              <p>Password</p>
+              <input class="inputBox" type="password" name="password" formControlName="password" required autocomplete="off"/>
+              <div *ngIf="registerForm.controls.password.invalid && (registerForm.controls.password.dirty || registerForm.controls.password.touched)">
+                 <span *ngIf="registerForm.controls.password.errors.required" class="errorMsg">password required</span>
+              </div>
+           </div>
+           <div class="registerBtnDiv">
+              <button (click)="register(registerForm)" [disabled]="registerForm.invalid" [hidden]="!showRegister">Register</button>
+              <button (click)="update(registerForm)" [disabled]="registerForm.invalid" [hidden]="showRegister">Update</button>
+           </div>
+        </form>
+    </div>
+  </div>

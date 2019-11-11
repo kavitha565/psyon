@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../../service/common.service'
 import { SharedServiceService } from 'src/app/service/shared-service.service';
+import { first } from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-umbraco',
@@ -9,10 +11,12 @@ import { SharedServiceService } from 'src/app/service/shared-service.service';
 })
 export class UmbracoComponent implements OnInit {
   htmlData:string
-  constructor(private cs:CommonService,private sharedService:SharedServiceService) { }
+  constructor(private cs:CommonService,private sharedService:SharedServiceService,private router:Router) {
+   }
 
   ngOnInit() {
-    this.sharedService.getCmsUrl
+      this.sharedService.getCmsUrl
+      //.pipe(first())
       .subscribe(cmsUrl => {
         console.log("cms url"+cmsUrl);
         if(cmsUrl == ''){
@@ -27,8 +31,6 @@ export class UmbracoComponent implements OnInit {
           console.log(err);
         })
       });
-      
-    //get cms url details
       // let path = location.pathname.split("/")
       // let cmsUrl = path[path.length-1]
       // this.cs.getResults(cmsUrl)
@@ -39,6 +41,6 @@ export class UmbracoComponent implements OnInit {
       //   console.log(err);
       // })
 
-  }
 
+  }
 }

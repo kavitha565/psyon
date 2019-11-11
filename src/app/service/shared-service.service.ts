@@ -16,11 +16,11 @@ export class SharedServiceService {
   getpowerBIData = this.powerBIData.asObservable();
 
   private selectedPowerBIData = new BehaviorSubject('');
-  getselectedPowerBIData = this.selectedPowerBIData.asObservable();
+  getselectedPowerBIData = this.selectedPowerBIData.getValue();
 
   constructor() { }
 
-  setProfileData(data:any){
+  setCmsData(data:any){
     this.cmsData.next(data);
   }
 

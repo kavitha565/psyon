@@ -18,25 +18,42 @@ nav{
             a{
                 text-decoration: none;
                 cursor: pointer;
+                color: black;
             }
+        }
+        li:hover{
+            background: #fff;
+        }
+        .menu-link{
+            position: relative;
         }
     }
     .menu-container{
+        position: absolute;
+        box-shadow: 3px 2px 5px #aaaaaa;
+        top: 40px;
+        width: 100px;
         display: none;
         background: #fff;
-        width: auto;
-        margin-top: 10px;
         ul{
             flex-flow: column;
+            margin-top: 10px;
+            margin-bottom: 10px;
             li{
                 padding:12px;
                 a{
                     cursor: pointer;
                 }
             }
+            li:hover{
+                background: rgba(0,0,0,.04);
+            }
         }
     }
 }
 li:hover .menu-container{
     display: block
+}
+.is-active{
+    color: #3f51b5 !important;
 }

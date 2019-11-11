@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedServiceService } from 'src/app/service/shared-service.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { first, last } from 'rxjs/operators';
 @Component({
   selector: 'app-subscriptions',
   templateUrl: './subscriptions.component.html',
@@ -45,9 +48,22 @@ export class SubscriptionsComponent implements OnInit {
     }
   
   ]
-  constructor() { }
+  powerBIData: any;
+  constructor(private sharedService:SharedServiceService,private router:Router, private r:ActivatedRoute) { }
+
+  selectedPowerBIData(selectedPowerBI){
+    //router Navigation 
+    //this.router.navigate(["../powerBI/"+selectedPowerBI], { relativeTo: this.r.parent });
+    this.sharedService.setselectedPowerBIData(selectedPowerBI)
+  }
 
   ngOnInit() {
+    
+    this.sharedService.getpowerBIData
+      //.pipe(first())
+      .subscribe(data=> {
+        this.powerBIData = data
+      });
   }
 
 }
