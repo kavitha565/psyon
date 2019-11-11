@@ -4,6 +4,7 @@ import { CommonService } from 'src/app/service/common.service';
 import { Router } from '@angular/router';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { SharedServiceService } from 'src/app/service/shared-service.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-user-management',
@@ -90,6 +91,7 @@ export class UserManagementComponent implements OnInit {
     this.showUsers=false
     this.showRegister=true
     this.selectedItems = [];
+    this.registerFormData.UserID = 0;
     this.registerForm.reset();
   }
   updateUser(user){
@@ -151,6 +153,7 @@ export class UserManagementComponent implements OnInit {
 
     //get powerbi data
     this.sharedService.getpowerBIData
+     // .pipe(first())
       .subscribe(data=> {
         this.powerBIData = data
         for(let i=0;i<this.powerBIData.length;i++){

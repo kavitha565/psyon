@@ -46,6 +46,7 @@ const routes: Routes = [
             component : UmbracoComponent
           }
         ]
+        
       },
       {
         path: 'usermanagement',
@@ -55,7 +56,8 @@ const routes: Routes = [
   },
   {
     path : 'fileUpload',
-    component : FileUploadComponent
+    component : FileUploadComponent,
+    
   },
   {
     path: '**', 

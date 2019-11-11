@@ -88,7 +88,7 @@
             </div>
             <div class="formInput">
               <p>Password</p>
-              <input class="inputBox" type="password" name="password" formControlName="password" required autocomplete="off"/>
+              <input class="inputBox" type="password" name="password" formControlName="password" required autocomplete="new-password"/>
               <div *ngIf="registerForm.controls.password.invalid && (registerForm.controls.password.dirty || registerForm.controls.password.touched)">
                  <span *ngIf="registerForm.controls.password.errors.required" class="errorMsg">password required</span>
               </div>

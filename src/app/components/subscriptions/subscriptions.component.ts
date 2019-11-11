@@ -52,8 +52,6 @@ export class SubscriptionsComponent implements OnInit {
   constructor(private sharedService:SharedServiceService,private router:Router, private r:ActivatedRoute) { }
 
   selectedPowerBIData(selectedPowerBI){
-    //router Navigation 
-    //this.router.navigate(["../powerBI/"+selectedPowerBI], { relativeTo: this.r.parent });
     this.sharedService.setselectedPowerBIData(selectedPowerBI)
   }
 
