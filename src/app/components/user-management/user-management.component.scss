@@ -24,6 +24,10 @@
           }
         .user-actions{
             text-align: center;
+            .fa{
+                cursor: pointer;
+                font-size: 18px;
+            }
         }
     }
     .register-form-container{
@@ -85,5 +89,11 @@
                 font-size: 18px;
             }
         }
+    }
+}
+.products-list{
+    list-style: none;
+    li:not(:last-child){
+        padding-bottom: 10px;
     }
 }

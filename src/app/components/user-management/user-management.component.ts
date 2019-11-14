@@ -12,7 +12,6 @@ import { first } from 'rxjs/operators';
   styleUrls: ['./user-management.component.scss']
 })
 export class UserManagementComponent implements OnInit {
-  //@ViewChild('hiddenInput',{static: false}) hiddenInput:ElementRef
   usersList : any = []
   registerFormData:any = {
     UserID : 0,
@@ -41,18 +40,11 @@ export class UserManagementComponent implements OnInit {
     this.registerFormData.FirstName = registerForm.controls.firstname.value;
     this.registerFormData.LastName = registerForm.controls.lastname.value;
     this.registerFormData.Password = registerForm.controls.password.value;
-    let productsList = this.selectedItems;
     let products = []
-    if(productsList && productsList.length>0){
-      for(let i=0;i<productsList.length;i++){
-        products.push(productsList[i].productName);
-      }
+    if(this.selectedItems){
+      products = this.selectedItems.map(item => item.productName)
     }
     this.registerFormData.Products = products;
-    // let postData = {
-    //   "Users" : this.registerFormData,
-    //   "Products" : products
-    // }
     this.cs.registerService(this.registerFormData)
       .subscribe((response:any)=>{
         //show Users list
@@ -69,12 +61,9 @@ export class UserManagementComponent implements OnInit {
     this.registerFormData.FirstName = registerForm.controls.firstname.value;
     this.registerFormData.LastName = registerForm.controls.lastname.value;
     this.registerFormData.Password = registerForm.controls.password.value;
-    let productsList = this.selectedItems;
     let products = []
-    if(productsList && productsList.length>0){
-      for(let i=0;i<productsList.length;i++){
-        products.push(productsList[i].productName);
-      }
+    if(this.selectedItems){
+      products = this.selectedItems.map(item => item.productName)
     }
     this.registerFormData.Products = products;
     this.cs.updateUserService(this.registerFormData)
@@ -104,11 +93,9 @@ export class UserManagementComponent implements OnInit {
     //filling product list
     for(let i=0;i<user.Products.length;i++){
       let productObj = {
-        id : "",
-        productName : ""
+        id : user.Products[i],
+        productName : user.Products[i]
       }
-      productObj.id = user.Products[i];
-      productObj.productName = user.Products[i];
       this.selectedItems.push(productObj);
     }
     this.registerForm = this.fb.group({
@@ -153,30 +140,18 @@ export class UserManagementComponent implements OnInit {
 
     //get powerbi data
     this.sharedService.getpowerBIData
-     // .pipe(first())
       .subscribe(data=> {
         this.powerBIData = data
         for(let i=0;i<this.powerBIData.length;i++){
           for(let j=0;j<this.powerBIData[i].lstReport.length;j++){
             let productObj = {
-              id : "",
-              productName : ""
+              id : this.powerBIData[i].lstReport[j].Name,
+              productName : this.powerBIData[i].lstReport[j].Name
             }
-            productObj.id = this.powerBIData[i].lstReport[j].Name;
-            productObj.productName = this.powerBIData[i].lstReport[j].Name;
             this.dropdownList.push(productObj);
           }
         }
       });
-
-    //multiselect dropdown 
-    // this.dropdownList = [
-    //   { item_id: 1, item_text: 'Mumbai' },
-    //   { item_id: 2, item_text: 'Bangaluru' },
-    //   { item_id: 3, item_text: 'Pune' },
-    //   { item_id: 4, item_text: 'Navsari' },
-    //   { item_id: 5, item_text: 'New Delhi' }
-    // ];
 
     this.dropdownSettings = {
       singleSelection: false,

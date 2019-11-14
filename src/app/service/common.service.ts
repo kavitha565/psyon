@@ -7,9 +7,10 @@ import { environment } from '../../environments/environment'
 export class CommonService {
 
   constructor(private http:HttpClient) { }
-  postFile(fileToUpload: File){
+  postFile(filesToUpload: Array<File>){
     const formData:FormData = new FormData();
-    formData.append('fileKey',fileToUpload,fileToUpload.name);
+    for(let i=0;i<filesToUpload.length;i++)
+    formData.append('fileKey',filesToUpload[i],filesToUpload[i].name);
     return this.http.post(environment.endpoint.fileUploadUrl,formData,{
       reportProgress:true,
       observe:'events'

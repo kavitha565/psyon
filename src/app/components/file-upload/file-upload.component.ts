@@ -10,7 +10,7 @@ import { HttpEvent, HttpEventType } from '@angular/common/http';
 })
 export class FileUploadComponent implements OnInit {
   isUploaded:boolean
-  fileToUpload:File = null
+  filesToUpload :Array<File> = []
   progress:number = 0
   fileDetails:any = []
   fileName
@@ -25,22 +25,25 @@ export class FileUploadComponent implements OnInit {
   constructor(private fb:FormBuilder,private cs:CommonService) { }
 
   onFileInput(files: FileList){
-    
-    this.fileToUpload = files.item(0);
-    let fileDetailsObj = {
-      fileName : this.fileToUpload.name,
-      fileSize : this.fileToUpload.size,
-      progress : 0
+    if(files.length>0){
+      for(let i=0;i<files.length;i++){
+        this.filesToUpload.push(files[i]);
+        let fileDetailsObj = {
+          fileName : files[i].name,
+          fileSize : files[i].size,
+          progress : 0
+        }
+        this.fileDetails.unshift(fileDetailsObj)
+      }
     }
-    this.fileDetails.unshift(fileDetailsObj)
   }
 
   submit(){
 
     this.isUploaded = true
     this.myForm.get('fileName').setValue('')
-    console.log(this.fileToUpload);
-    this.cs.postFile(this.fileToUpload)
+    console.log(this.filesToUpload);
+    this.cs.postFile(this.filesToUpload)
       .subscribe((event:HttpEvent<any>)=>{
         switch(event.type){
           case HttpEventType.Sent:

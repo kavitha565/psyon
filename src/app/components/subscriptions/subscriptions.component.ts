@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedServiceService } from 'src/app/service/shared-service.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { first, last } from 'rxjs/operators';
 @Component({
   selector: 'app-subscriptions',
   templateUrl: './subscriptions.component.html',

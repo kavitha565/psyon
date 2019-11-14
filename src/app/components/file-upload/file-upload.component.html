@@ -11,7 +11,7 @@
             </div>
             <form name="myForm" [formGroup]="myForm" style="margin-top:20px;">
                 <div class="formInput">
-                    <input type="file" name="fileName" formControlName="fileName" (change)="onFileInput($event.target.files)" required/>
+                    <input type="file" name="fileName" formControlName="fileName" multiple (change)="onFileInput($event.target.files)" required/>
                 </div>
             </form>
         </div>

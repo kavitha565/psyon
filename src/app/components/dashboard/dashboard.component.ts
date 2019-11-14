@@ -21,29 +21,29 @@ export class DashboardComponent implements OnInit {
   onFileInput(files: FileList){
     this.fileToUpload = files.item(0);
   }
-  submit(){
-    console.log(this.fileToUpload);
-    this.cs.postFile(this.fileToUpload)
-      .subscribe((event:HttpEvent<any>)=>{
-        switch(event.type){
-          case HttpEventType.Sent:
-            console.log("Request has been made!!");
-            break;
-          case HttpEventType.ResponseHeader:
-            console.log("Response headers have been received!!");
-            break;
-          case HttpEventType.UploadProgress:
-            this.progress = Math.round(event.loaded/event.total *100);
-            console.log("Uploaded"+this.progress+"%");
-            break;
-          case HttpEventType.Response:
-              console.log("Uploaded successfully!!");
-              break;
-        }
-      },err=>{
-        console.log(err);
-      })
-  }
+  // submit(){
+  //   console.log(this.fileToUpload);
+  //   this.cs.postFile(this.fileToUpload)
+  //     .subscribe((event:HttpEvent<any>)=>{
+  //       switch(event.type){
+  //         case HttpEventType.Sent:
+  //           console.log("Request has been made!!");
+  //           break;
+  //         case HttpEventType.ResponseHeader:
+  //           console.log("Response headers have been received!!");
+  //           break;
+  //         case HttpEventType.UploadProgress:
+  //           this.progress = Math.round(event.loaded/event.total *100);
+  //           console.log("Uploaded"+this.progress+"%");
+  //           break;
+  //         case HttpEventType.Response:
+  //             console.log("Uploaded successfully!!");
+  //             break;
+  //       }
+  //     },err=>{
+  //       console.log(err);
+  //     })
+  // }
   ngOnInit() {
     
     //get CMS data
